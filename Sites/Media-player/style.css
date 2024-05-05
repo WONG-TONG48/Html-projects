@@ -1,0 +1,202 @@
+:root{
+    --anim-time: 0.25s;
+    --dark-color: #0F004B;
+    --light-color: #A38CFF;
+}
+
+body{
+    margin: 0px;
+}
+
+#title{
+    font-size: 70px;
+    width: 70vw;
+    word-wrap: break-word;
+    margin: 0px;
+}
+
+.button{
+    display:flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vh;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 25px;
+    background-color: black;
+    color: azure;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 20vw;
+    height: 20vh;
+    transition: transform var(--anim-time) ease-in-out,background-color var(--anim-time) ease-in-out;
+}
+
+@keyframes shake{
+    from{
+        rotate: 0deg;
+    }
+
+    25%{
+        rotate: 5deg;
+    }
+
+    75%{
+        rotate: -5deg;
+    }
+
+    to{
+        rotate: 0deg;
+    }
+}
+
+.button:hover{
+    animation-name: shake;
+    animation-duration: var(--anim-time);
+    animation-timing-function: ease-in-out;
+    transform: scale(1.1);
+    background-color:darkslategrey;
+}
+
+.center-it{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+#queue{
+    position: absolute;
+    top: 0px;
+    left: 70vw;
+    height:80vh;
+    width: 30vw;
+    background-color: bisque;
+    overflow: auto;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.track{
+    background-color: cadetblue;
+    margin: 0px;
+    cursor: pointer;
+    transition: font-size 0.3s,background-color 0.3s;
+}
+
+.track:hover{
+    background-color: aquamarine;
+    font-size: 30px;
+}
+
+#selected{
+    background-color: blue;
+}
+
+#play-button-container {
+    position: absolute;
+    top:83vh;
+    left:48vw;
+    display: inline-block;
+    width: 10vw;
+    height: 10vh;
+    cursor: pointer;
+  }
+.play-button {
+    display: inline-block;
+    position: absolute;
+    width: 10vw;
+    height: 17vh;
+    background: var(--dark-color);
+    transition: clip-path .3s ease;
+}
+.play-button-before {
+    clip-path: polygon(0 0, 50% 25%, 50% 75%, 0% 100%);
+}
+.play-button-after {
+    clip-path: polygon(50% 25%, 100% 50%, 100% 50%, 50% 75%);
+}
+#play-button-container.active .play-button-before {
+    clip-path: polygon(0 0, 30% 0, 30% 100%, 0% 100%);
+}
+#play-button-container.active .play-button-after{
+    clip-path: polygon(70% 0, 100% 0, 100% 100%, 70% 100%)
+}
+
+svg{
+    width: 20vw;
+    height: 20vh;
+    position: absolute;
+    cursor: pointer;
+    top: 80vh;
+}
+
+#next{
+    left: 80vw;
+}
+
+#previous .dark1,#previous .dark2,#previous .light1{
+    rotate: 180deg;
+    transform-origin: 50% 50%;
+}
+
+@keyframes move{
+    0%,100%{
+        
+        opacity: 1;
+    }
+
+    50%{
+        transform: translate(100%);
+        opacity: 0;
+        animation-timing-function: steps(1,end);
+    }
+
+    51%{
+        opacity: 0;
+        transform: translate(-100%);
+    }
+}
+
+.dark{
+    fill: var(--dark-color);
+    stroke: var(--dark-color);
+}
+
+.light{
+    fill: var(--light-color);
+    stroke: var(--light-color);
+}
+
+.dark1{
+    opacity: 0;
+    transform: translate(-100%);
+}
+
+.dark1,.dark2,.light1{
+    transition: all 1000ms ease;
+}
+
+svg:hover .dark1{
+    opacity: 1;
+    transform: translate(0%);
+}
+
+svg:hover .light1{
+    transform: translate(25%);
+}
+
+svg:hover .dark2{
+    transform: translate(40%);
+    opacity: 0;
+}
+
+svg.active .dark1{
+    animation: move 0.4s ease-in-out;
+}
+
+svg.active .light1{
+    animation: move 0.4s ease-in-out;
+}

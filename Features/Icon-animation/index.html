@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../Feature-style.css">
+        <style>
+            :root{
+                --dark-color: #0F004B;
+                --light-color: #A38CFF;
+            }
+            
+            svg{
+                width: 100vw;
+                height: 88vh;
+                cursor: pointer;
+            }
+
+            @keyframes move{
+                0%,100%{
+                    
+                    opacity: 1;
+                }
+
+                50%{
+                    transform: translate(100%);
+                    opacity: 0;
+                    animation-timing-function: steps(1,end);
+                }
+
+                51%{
+                    opacity: 0;
+                    transform: translate(-100%);
+                }
+            }
+
+            #dark{
+                fill: var(--dark-color);
+                stroke: var(--dark-color);
+            }
+
+            #light{
+                fill: var(--light-color);
+                stroke: var(--light-color);
+            }
+
+            #dark1,#dark2,#light1{
+                transition: all 1000ms ease;
+            }
+
+            #dark1{
+                opacity: 0;
+                transform: translate(-100%);
+            }
+
+            svg:hover #dark1{
+                opacity: 1;
+                transform: translate(0%);
+            }
+
+            svg:hover #light1{
+                transform: translate(25%);
+            }
+
+            svg:hover #dark2{
+                transform: translate(40%);
+                opacity: 0;
+            }
+
+            svg:active #dark1{
+                animation: move 0.4s ease-in-out;
+            }
+
+            svg:active #light1{
+                animation: move 0.4s ease-in-out;
+            }
+   
+        </style>
+    </head>
+    <body>
+        <div id="head"></div>
+        <script src="../Feature-setup.js"></script>
+        <svg width="500" height="200" viewBox="0 0 87 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="dark">
+            <path id="dark2" d="M83.75 36.299L37.25 63.1458C36.25 63.7232 35 63.0015 35 61.8468L35 8.15321C35 6.99851 36.25 6.27682 37.25 6.85418L83.75 33.701C84.75 34.2783 84.75 35.7217 83.75 36.299Z" fill-opacity="0.75"/>
+            <path id="dark1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+            <g id="light">
+                <path id="light1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+        </svg>
+    </body>
+</html>

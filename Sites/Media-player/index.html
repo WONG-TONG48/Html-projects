@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="media-player.js"></script>
+</head>
+<body>
+    <audio id="audio-player" onended="ind++; playTrack(queue[ind])"></audio>
+    <p id="title">
+        Not playing
+    </p>
+    <div class="button" onclick="getDirectory()"> 
+        <p>Select<br>Folder</p>
+    </div>
+    <div id="queue">
+
+    </div>
+    <div id="body">
+        <div class="center-it">
+            <img src="./music.png">
+        </div>
+        <svg id="next" width="87" height="70" viewBox="0 0 87 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="dark">
+                <path class="dark2" d="M83.75 36.299L37.25 63.1458C36.25 63.7232 35 63.0015 35 61.8468L35 8.15321C35 6.99851 36.25 6.27682 37.25 6.85418L83.75 33.701C84.75 34.2783 84.75 35.7217 83.75 36.299Z" fill-opacity="0.75"/>
+                <path class="dark1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+            <g class="light">
+                <path class="light1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+        </svg>
+        <svg id="previous" width="87" height="70" viewBox="0 0 87 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="dark">
+            <path class="dark2" d="M83.75 36.299L37.25 63.1458C36.25 63.7232 35 63.0015 35 61.8468L35 8.15321C35 6.99851 36.25 6.27682 37.25 6.85418L83.75 33.701C84.75 34.2783 84.75 35.7217 83.75 36.299Z" fill-opacity="0.75"/>
+            <path class="dark1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+            <g class="light">
+                <path class="light1" d="M62.75 36.299L16.25 63.1458C15.25 63.7232 14 63.0015 14 61.8468L14 8.15321C14 6.99851 15.25 6.27682 16.25 6.85418L62.75 33.701C63.75 34.2783 63.75 35.7217 62.75 36.299Z" fill-opacity="0.75"/>
+            </g>
+        </svg>
+        <span id="play-button-container">
+            <span class="play-button play-button-before"></span>
+            <span class="play-button play-button-after"></span>
+        </span>
+    </div>
+</body>
+</html>
